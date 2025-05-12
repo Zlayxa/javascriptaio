@@ -3,13 +3,78 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Holiday Finder</title>
   </head>
-  <div>
-    <button onclick="alert('Welcome to JavaScript All-In-One')">
-      Click Here for an important message!
-    </button>
-    <h1>Spoopidy boopidy.</h1>
-  </div>
-  <body></body>
+  <body>
+    <div>
+      <button onclick="alert('Welcome to JavaScript All-In-One')">
+        Click Here for an important message!
+      </button>
+      <h1>Spoopidy boopidy.</h1>
+    </div>
+
+    <div id="message"></div>
+    <script>
+      const dt = new Date();
+      const month = dt.getMonth();
+      let msg;
+      switch (month) {
+        case 0:
+          msg = "January 4th is National Spaghetti Day!";
+          break;
+        case 1:
+          msg = "May 5th is National Pizza Day!";
+          break;
+        case 3:
+          msg = "March 20th is National Spinach Day!";
+          break;
+        default:
+          msg = "No holidays this month :(";
+      }
+      const el = document.getElementById("message");
+      el.innerHTML = msg;
+    </script>
+    <!-- For some reason this doesn't work, I assume the guy hasn't typed it up fully / properly. -->
+
+    <div id="root"></div>
+    <script>
+      const house = { sqft: 800, bdRooms: 2, bthRooms: 1 };
+      let houseDetails = "<h2> Information about this house.</h2>";
+      for (let prop in house) {
+        houseDetails = `${houseDetails}<br>${prop}:${house[prop]}<br>`;
+        document.getElementById("root").innerHTML = houseDetails;
+      }
+    </script>
+
+    <!--Random number with a while loop below.-->
+    <div id="toot"></div>
+    <script>
+      let guessNumber = 0;
+      let numberToGuess = 71;
+      let guess;
+      while (guess != numberToGuess) {
+        guess = Math.floor(Math.random() * 100);
+        guessNumber++;
+      }
+      document.getElementById("toot").innerHTML = `
+      <h2>I guessed it!</h2>
+      <p>It only took me ${guessNumber} guesses!</p>`;
+    </script>
+
+    <!--Same game below, but improved on apparently with a do... function.-->
+    <div id="poot"></div>
+    <script>
+      let guessNumberTwo = 0;
+      let numberTwoGuess = 77;
+      let guessTwo;
+      do {
+        guessTwo = Math.floor(Math.random() * 100);
+        guessNumberTwo++;
+      } while (guessTwo != numberTwoGuess);
+
+      document.getElementById("poot").innerHTML = `
+      <h2>I guessed it!</h2>
+      <p>It only took me ${guessNumberTwo} guesses!</p>`;
+    </script>
+  </body>
 </html>
