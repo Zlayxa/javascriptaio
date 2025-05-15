@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE-Edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login Form</title>
+  </head>
+  <body>
+    <h1 id="status"></h1>
+    <label>
+      Username:
+      <input id="username" type="text" />
+    </label>
+    <label>
+      Password:
+      <input id="password" type="text" />
+    </label>
+    <button id="login">Log in</button>
+    <script>
+      const username = document.getElementById("username");
+      const password = document.getElementById("password");
+      const loginBtn = document.getElementById("login");
+      const statusMsg = document.getElementById("status");
+      /*sendLoginData(
+        args,
+        function (result) {
+          login(
+            result,
+            function (result) {
+              loadPage(
+                result,
+                function () {
+                  console.log(`result: ${result}`);
+                },
+                failureCallBack
+              );
+            },
+            failureCallBack
+          );
+        },
+        failureCallBack
+      ); this is a nested callback pyramid.*/
+
+      loginBtn.addEventListener("click", doLogin);
+
+      function doLogin() {
+        statusMsg.innerHTML = `Logging in ${username.value}...`;
+      }
+
+      /*doLogin()
+        .then((result) => sendLoginData(result))
+        .then((result1) => logIn(result1))
+        .then((result2) => loadPage(result2))
+        .then((result3) => {
+            console.log(`final result: ${result3}`)
+        })
+        .catch(failureCallback); this is a promise chain, better than the callback pyramid.*/
+    </script>
+  </body>
+</html>

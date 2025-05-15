@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Firing a Built-In Event</title>
+  </head>
+  <body>
+    <input id="test-text" type="text" value="this is a test" />
+    <script>
+      const focusEvent = new Event("focus");
+      const testInput = document.getElementById("test-text");
+      testInput.addEventListener("focus", (e) => {
+        testInput.focus();
+        console.log(`${e.target.value}`);
+      });
+
+      /*const event = new CustomEvent("stampedClick", { detail: new Date() });
+      testInput.addEventListener("stampedClick", (e) => {
+        console.log(`Clicked at`, e.detail);
+      });*/
+
+      testInput.dispatchEvent(focusEvent);
+      console.log(`The active element is: ${document.activeElement.id}`);
+    </script>
+
+    <!--<script>
+      const handleClick = function (e) {
+        e.preventDefault();
+        console.log("click handled");
+      };
+      myButton.addEventListener("click", handleClick);
+      myButton.removeEventListener("click", handleClick);
+    </script>-->
+  </body>
+</html>
