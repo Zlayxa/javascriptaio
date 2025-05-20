@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Static Navigation Bar Mockup</title>
+  </head>
+  <body>
+    <script>
+      function SearchBox() {
+          return (
+          <div>
+              <input type="text" placeholders="Search Google or type a URL" />
+          </div>
+          );
+      }
+      export default SearchBox;
+
+      function TopNavBar() {
+          return (
+          <nav>
+              <ul>
+              <li>All</li>
+              <li>News</li>
+              <li>Videos</li>
+              <li>Images</li>
+              <li>Books</li>
+              <li>More</li>
+              </ul>
+          </nav>
+          );
+      }
+
+      import GoogleLogo from './GoogleLogo';
+      import SearchBox from './SearchBox';
+      import SignInButton from './SignInButton';
+      import NavBar from './NavBar';
+      import SearchResults from './SearchResults';
+      import SideBar from './SideBar';
+      function App() {
+          return (
+              <div>
+                  <div>
+                      <GoogleLogo/>
+                      <SearchBox/>
+                      <SignInButton/>
+                  </div>
+                  <NavBar/>
+                  <div>
+                      <SearchResults/>
+                      <SideBar/>
+                  </div>
+              </div>
+          );
+      }
+      export default App;
+    </script>
+  </body>
+</html>
+<!-- Fuck knows why this isnt working, or if it is meant to work at all from inside the book. -->
